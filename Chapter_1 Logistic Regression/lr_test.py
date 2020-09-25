@@ -2,7 +2,8 @@
 '''
 Date:20160901
 @author: zhaozhiyong
-Edit Date:20200925 Edited by stoneshi(python3.7)
+Edit Date:20200925 
+Edited by stoneshi(python3.7)
 '''
 
 import numpy as np
