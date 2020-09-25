@@ -2,7 +2,9 @@
 '''
 Date:20160901
 @author: zhaozhiyong
+Edit Date:20200925 Edited by stoneshi(python3.7)
 '''
+
 import numpy as np
 from lr_train import sig
 
@@ -52,7 +54,7 @@ def predict(data, w):
     '''
     h = sig(data * w.T)#sig
     m = np.shape(h)[0]
-    for i in xrange(m):
+    for i in range(m):
         if h[i, 0] < 0.5:
             h[i, 0] = 0.0
         else:
@@ -67,7 +69,7 @@ def save_result(file_name, result):
     m = np.shape(result)[0]
     #输出预测结果到文件
     tmp = []
-    for i in xrange(m):
+    for i in range(m):
         tmp.append(str(result[i, 0]))
     f_result = open(file_name, "w")
     f_result.write("\t".join(tmp))
@@ -75,16 +77,16 @@ def save_result(file_name, result):
 
 if __name__ == "__main__":
     # 1、导入LR模型
-    print "---------- 1.load model ------------"
+    print ("---------- 1.load model ------------")
     w = load_weight("weights")
     n = np.shape(w)[1]
     # 2、导入测试数据
-    print "---------- 2.load data ------------"
+    print ("---------- 2.load data ------------")
     testData = load_data("test_data", n)
     # 3、对测试数据进行预测
-    print "---------- 3.get prediction ------------"
+    print ("---------- 3.get prediction ------------")
     h = predict(testData, w)#进行预测
     # 4、保存最终的预测结果
-    print "---------- 4.save prediction ------------"
+    print ("---------- 4.save prediction ------------")
     save_result("result", h)
     
